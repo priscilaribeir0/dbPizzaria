@@ -17,8 +17,7 @@ CREATE TABLE Funcionarios (
     nome VARCHAR(100) NOT NULL, 
     cargo VARCHAR(50), -- 'entregador', 'cozinheiro', 'atendente' 
     telefone VARCHAR(20), 
-    veiculo_entrega VARCHAR(50), 
-    placa_veiculo VARCHAR(10), 
+
     ativo BOOLEAN DEFAULT TRUE 
 ); 
 
@@ -151,7 +150,9 @@ CREATE TABLE Entregas (
     statusEntrega ENUM('pendente', 'saiu_entrega', 'entregue', 'cancelada'), 
     tempo_entrega_min INT, 
     valor_entrega DECIMAL(10,2), 
-    observacoes_entrega TEXT, 
+    observacoes_entrega TEXT,
+    veiculo_entrega VARCHAR(50), 
+    placa_veiculo VARCHAR(10),  
     FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido), 
     FOREIGN KEY (id_entregador) REFERENCES Funcionarios(id_funcionario) 
 ); 
